@@ -1,0 +1,41 @@
+public static void frequency(String str){
+        //General
+        System.out.println("---------General Method----------");
+        str=str.toLowerCase();
+        for(int i=0;i<str.length();i++){
+            char ch=str.charAt(i);
+            boolean flag=false;
+            for(int j=0;j<i;j++){
+                if(ch==str.charAt(j)){
+                    flag=true;
+                    break;
+                }
+            }
+            if(flag) continue;
+            int count=1;
+            for(int k=i+1;k<str.length();k++){
+                if(ch==str.charAt(k))
+                    count++;
+            }
+            if(ch==' ')
+                System.out.println("Space : "+count);
+            else
+                System.out.println(ch+" : "+count);
+        }
+
+        //Optimised
+        System.out.println("---------Optimised Method----------");
+        int[] freq=new int[256];
+        for(int i=0;i<str.length();i++){
+            char ch=str.charAt(i);
+            freq[ch]++;
+        }
+        for(int i=0;i<freq.length;i++){
+            char ch=(char)i;
+            if(ch==' ')
+                    System.out.println("Space : "+freq[i]);
+            if(freq[i]!=0) {
+                System.out.println("Space : "+freq[i]);
+            }
+        }
+    }
