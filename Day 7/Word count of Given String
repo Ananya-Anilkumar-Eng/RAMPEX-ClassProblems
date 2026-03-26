@@ -1,0 +1,25 @@
+ public static int wordCount(String str){
+        //With builtin
+        str=str.trim();
+        String[] words=str.split("\\s+");
+        if(str.isEmpty())
+            System.out.println("Builtin: "+0);
+        else
+            System.out.println("Builtin: "+words.length);
+        //Without builtin
+        boolean flag=true;
+        int count=0;
+        for(int ind=0;ind<str.length();ind++){
+            char ch= str.charAt(ind);
+            if(ch!=' '){
+                if(flag) {
+                    count++;
+                    flag = false;
+                }
+            }
+            else{
+                flag=true;
+            }
+        }
+        return count;
+    }
