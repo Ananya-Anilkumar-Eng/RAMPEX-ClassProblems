@@ -1,0 +1,26 @@
+class Animal{
+  public void eat(){
+    System.out.println("Animal is eating");
+  }
+}
+class Cat extends Animal{
+  public void sound(){
+    System.out.println("Cat meows");
+  }
+}
+class Puppy extends Animal{
+  public void play(){
+    System.out.println("Puppy plays");
+  }
+}
+
+class Main{
+  Puppy p=new Puppy();
+  p.eat();//Animal is eating
+  p.sound();//ERROR Can't access
+  p.play();//Puppy plays
+  Cat c=new Cat();
+  c.eat();//Animal is eating
+  c.sound();//Cat meows
+  c.play();//ERROR Can't access
+}
