@@ -1,0 +1,89 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Ride {
+    String name;
+    String pickup;
+    String drop;
+    List<String> stop;
+    double fare;
+    String status;
+
+    Ride(String name, String pickup, String drop){
+        this.name=name;
+        this.pickup=pickup;
+        this.drop=drop;
+        this.stop=new ArrayList<>();
+        this.fare=calculate(stop);
+        this.status="Booked";
+    }
+
+    Ride(String name, String pickup, String drop, List<String> stop){
+        this.name=name;
+        this.pickup=pickup;
+        this.drop=drop;
+        this.stop=stop;
+        this.fare=calculate(stop);
+        this.status="Booked";
+    }
+
+    public double calculate(List<String> stop){
+        return 50+stop.size()*50;
+    }
+
+    public void showDetails(){
+        System.out.println("Customer Name: "+this.name+"\n***Route***");
+        System.out.print(this.pickup+" ---> ");
+        for(String s:this.stop){
+            System.out.print(s+" ---> ");
+        }
+        System.out.println(this.drop);
+        System.out.println("Fare: "+this.fare);
+        System.out.println("Status: "+this.status);
+        System.out.println("---------------------------------");
+    }
+
+    public void cancelRide(){
+        if(this.status.equals("Cancelled"))
+            System.out.println("Mr/Miss "+this.name+" Already ride cancelled");
+        else if(this.status.equals("Completed"))
+            System.out.println("Mr/Miss "+this.name+" Already ride completed can't be cancelled");
+        else {
+            this.status="Cancelled";
+            this.fare=0;
+            System.out.println("Mr/Miss "+this.name+" Successfully Cancelled");
+        }
+    }
+
+    public void completeRide(){
+        if(this.status.equals("Cancelled"))
+            System.out.println("Mr/Miss "+this.name+" Already ride cancelled can't be completed");
+        else if(this.status.equals("Completed"))
+            System.out.println("Mr/Miss "+this.name+" Already ride completed");
+        else {
+            this.status="Completed";
+            System.out.println("Mr/Miss "+this.name+" Successfully Completed");
+        }
+    }
+}
+
+
+public class Main {
+      public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+      Ride R1=new Ride("Ram","SJIT","Guindy");
+      R1.showDetails();
+      List <String> stop=new ArrayList<>();
+      stop.add("Shollinganallur");
+      stop.add("Tidel Park");
+      Ride R2=new Ride("Rocky","Shollinganallur","Saidapet",stop);
+      R2.showDetails();
+      R1.cancelRide();
+      R1.showDetails();
+      R2.completeRide();
+      R2.showDetails();
+      R1.completeRide();;
+      R2.cancelRide();
+    }
+}
