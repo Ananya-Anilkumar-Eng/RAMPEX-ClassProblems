@@ -1,0 +1,30 @@
+class Solution {
+    public String convert(String s, int numRows) {
+        if(numRows==1)
+        return s;
+        StringBuilder[] arr=new StringBuilder[numRows];
+        for(int i=0;i<numRows;i++){
+            arr[i]=new StringBuilder();
+        }
+        int n=s.length();
+        boolean dir=false;
+        int currow=0;
+        for(char ch:s.toCharArray()){
+            arr[currow].append(ch);
+            if(currow==numRows-1 || currow==0){
+                dir=!dir;
+            }
+            if(dir){
+                currow++;
+            }
+            else{
+                currow--;
+            }
+        }
+        StringBuilder res=new StringBuilder();
+        for(StringBuilder sb:arr){
+            res.append(sb);
+        }
+        return res.toString();
+    }
+}
