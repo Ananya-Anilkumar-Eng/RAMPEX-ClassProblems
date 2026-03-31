@@ -3,7 +3,7 @@ class Animal{
     System.out.println("Animal is eating");
   }
 }
-class Cat extend Animal{
+class Cat extends Animal{
   public void sound(){
     System.out.println("Cat meows");
   }
