@@ -1,0 +1,21 @@
+class Solution{
+    public int longestContinuousSubArray(int[] arr){
+        int max=0;
+        for(int i=0;i<arr.length;i++){
+            int ones=0;
+            int zeros=0;
+            int j;
+            for(int j=i;j<arr.length;j++){
+                if(arr[j]==0)
+                    ones++;
+                else zeros++;
+            }
+            if(ones==zeros){
+                if(j-i+1 > max){
+                    max=j-i+1;
+                }
+            }
+        }
+      return max;
+    }
+}
