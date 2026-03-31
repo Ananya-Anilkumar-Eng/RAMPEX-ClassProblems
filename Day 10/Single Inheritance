@@ -1,0 +1,15 @@
+class Animal{
+  public void eat(){
+    System.out.println("Animal is eating");
+  }
+}
+class Cat extend Animal{
+  public void sound(){
+    System.out.println("Cat meows");
+  }
+}
+class Main{
+  Cat c=new Cat();
+  c.eat();//Animal is eating
+  c.sound();//Cat meows
+}
