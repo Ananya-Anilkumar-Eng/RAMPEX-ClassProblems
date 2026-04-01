@@ -1,0 +1,17 @@
+class Amazon{
+  void search(String product){
+    System.out.println("Product: "+product);
+  }
+  void search(String productn int price){
+    System.out.println("Product: "+product+" Price: "+price);
+  }
+  void search(String product, String category){
+    System.out.println("Product: "+product" Category: "+category);
+  }
+}
+class Main{
+  Amazon a=new Amazon();
+  a.search("laptop");// Product: laptop
+  a.search("laptop",50000);// Product: laptop Price: 50000
+  a.search("laptop","electronics);// Product: laptop Category: electronics
+}
