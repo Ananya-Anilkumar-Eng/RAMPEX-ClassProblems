@@ -1,0 +1,31 @@
+class Amazon{
+  void delivery(){
+    System.out.println("Product will be delivered");
+  }
+}
+class StandardDelivery extends Amazon{
+  void delivery(){
+    System.out.println("Product will be delivered in 5 days");
+  }
+}
+class ExpressDelivery extends Amazon{
+  void delivery(){
+    System.out.println("Product will be delivered in 2 days");
+  }
+}
+class PriemDelivery extends Amazon{
+  void delivery(){
+    System.out.println("Product will be delivered in 24 hrs");
+  }
+}
+class Main{
+  Amazon a;
+  int chosen=sc.nextInt();//User chooses the type of delivery
+  if(chosen==1)
+    a=new StandardDelivery();
+  else if(chosen==2)
+    a=new ExpressDelivery();
+  else if(chosen==3){
+    a=new PrimeDelivery();
+  a.delivery();
+}
