@@ -1,0 +1,24 @@
+class Engine{
+    void on(){ //6
+        System.out.println("Engine has turned ON");
+    }
+}
+class Car{
+    Engine e;                                       
+    Car(){                                         
+        e=new Engine();
+    }
+    void start(){                                   
+        e.on();                                     
+        System.out.println("Car has started");      
+    }
+}
+public class Main{
+    public static void main(String[] args){
+        Car c=new Car();                           
+        c.start();  
+// Engine has turned ON
+// Car has started
+        
+    }
+}
